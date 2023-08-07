@@ -1,0 +1,58 @@
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#grey {
+    background-color: grey;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* container untuk flexbox */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    padding: 30px;
+}
+
+/* jika lebar kurang dari 600px,, maka content akan tersusun dengan 1 baris */
+@media screen and (max-width: 599px) {
+    .content {
+        flex: 100%;
+    }
+}
+
+/* jika lebar lebih dari atau sama dengan 600px dan kurang dari 960px, maka content akan tersusun dengan 2 baris */
+@media screen and (max-width: 959px) and (min-width: 600px) {
+    .content {
+        flex: 50%;
+    }
+}
+
+/* jika lebar lebih atau sama dengan 960x maka content akan tersusun dengan 3 baris */
+@media screen and (min-width: 960px) {
+    .content {
+        flex: 33%;
+    }
+}
