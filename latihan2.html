@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="item in todoList">{{ item.name }}</li>
+        </ol>
+        <form v-on:submit.prevent="addItem">
+            <input type="text" v-model="itemName">
+            <button type="submit"> Tambahkan </button>
+        </form>
+        <p v-if="todoList.length>=4"> Hebat ! </p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    itemName: null,
+                    todoList: []
+                }
+            },
+            methods: {
+                addItem() {
+                    let item = {
+                        name: this.itemName,
+                    }
+                    this.todoList.push(item)
+                    this.itemName = null
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
